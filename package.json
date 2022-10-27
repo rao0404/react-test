@@ -1,0 +1,9 @@
+{
+  "name": "react-test",
+  "version": "0.1.0",
+  "description": "react private test",
+  "main": "index.js",
+  "repository": "git@github.com:rao0404/react-test.git",
+  "author": "rao0404",
+  "license": "MIT"
+}
