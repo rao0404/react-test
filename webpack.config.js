@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 //html-webpack-plugin の読み込み
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,17 +19,29 @@ const config = {
     },
     //プラグインの設定
     plugins: [
+        new webpack.SourceMapDevToolPlugin({
+            noSources: false,
+            filename: '[file].map'
+        }),
         new MiniCssExtractPlugin({
             //出力するスタイルシートの名前
             filename: 'style.css',
         }),
         //html-webpack-plugin の設定
         new HtmlWebpackPlugin({
+            // filename: './index.html',
+            // template: 'ejs-render-loader!./sample1/child1/src/ejs/index.ejs',
+            filename: 'index.html',
+            template: './sample1/child1/src/ejs/index.ejs',
             //<title> 要素を指定
-            title: 'React 環境構築サンプル（最終版）',
+            // title: 'React 環境構築サンプル（最終版）',
             //ファイル末尾にハッシュを追加
-            hash: true,
+            // hash: true,
         })
+        // new HtmlWebpackPlugin({
+        //     filename: '../index.html',
+        //     template:  'ejs-render-loader!./sample1/child1/src/ejs/index.ejs'
+        // })
     ],
     //optimization プロパティ
     optimization: {
@@ -43,9 +56,13 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.ejs$/,
+                use: 'ejs-compiled-loader',
+            },
+            {
                 // CSS のローダー
                 //ローダーの処理対象ファイル（拡張子 .css）
-                test: /\.css$/i,
+                test: /\.(scss|sass|css)$/i,
                 use: [
                     // CSSファイルを抽出するように MiniCssExtractPlugin のローダーを指定
                     {
