@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createRoot } from 'react-dom/client';
 import App from './components/App.jsx'
-import './css/style.css'  //style.css の読み込み
+import './css/style2.css'  //style.css の読み込み
 
 // const root = document.createElement('div');
 // root.setAttribute('id', 'root');
@@ -14,6 +14,7 @@ import './css/style.css'  //style.css の読み込み
 //     </React.StrictMode>,
 //     document.getElementById('root')
 // );
+
 
 window.addEventListener('load', (event) => {
     const container = document.getElementById('root');

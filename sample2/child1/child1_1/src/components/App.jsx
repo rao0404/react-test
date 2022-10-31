@@ -4,7 +4,7 @@ const App = () => {
 
     return (
         <>
-            <div>success react renddering - sample1/child1</div>
+            <div>success react renddering - sample2/child1/child1_1</div>
         </>
     )
 }

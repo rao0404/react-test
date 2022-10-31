@@ -1,5 +1,8 @@
+# dir
 .idea
 dist
+assets
 node_modules
 
+# file
 yarn-error.log
