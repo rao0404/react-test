@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createRoot } from 'react-dom/client';
-import App from './components/App.jsx'
-import './css/style.css'  //style.css の読み込み
+import App from './components/App.jsx';
+import "modern-normalize/modern-normalize.css";
+import './scss/index.scss';  //style.css の読み込み
 
 // const root = document.createElement('div');
 // root.setAttribute('id', 'root');

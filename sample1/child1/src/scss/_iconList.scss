@@ -1,0 +1,41 @@
+.iconList{
+    li {
+      list-style:none;
+      display: flex;
+    }
+    .icon {
+      &_mushroom {
+        position: relative;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url(../img/icon_mushroom.jpeg) no-repeat;
+          background-size: contain;
+        }
+      }
+      &_apple {
+        position: relative;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url(../img/icon_apple.png) no-repeat;
+          background-size: contain;
+        }
+      }
+      &_cup {
+        position: relative;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url(../img/icon_cup.svg) no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+}

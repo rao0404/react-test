@@ -11,8 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
+    "dev_cleanup": "rm -rf dist",
     "watch": "webpack --mode development --watch",
-    "start": "npm run watch & webpack-dev-server"
+    "start": "dev_cleanup & npm run watch & webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
@@ -21,11 +22,11 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "ejs": "^3.1.8",
     "ejs-html-loader": "^4.0.1",
     "ejs-render-loader": "^1.0.0",
-    "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
@@ -39,7 +40,9 @@
   },
   "dependencies": {
     "ejs-compiled-loader": "^3.1.0",
+    "modern-normalize": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
 }
+
