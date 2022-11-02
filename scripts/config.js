@@ -4,6 +4,8 @@ const getProjectRootPath = () => {
     return path.resolve(__dirname, '../')
 }
 
+module.exports.COMMON_DIR_PATH = '/common'
+
 module.exports.PROJECT_ROOT = getProjectRootPath()
 
 module.exports.ENV_MODE = {

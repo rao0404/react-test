@@ -9,7 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 //JavaScript の圧縮用のプラグイン TerserPlugin の読み込み
 const TerserPlugin = require('terser-webpack-plugin');
-const {ENV_MODE, PROJECT_ROOT, CONTENT_ID} = require("./config");
+const {ENV_MODE, PROJECT_ROOT, CONTENT_ID, COMMON_DIR_PATH} = require("./config");
 
 module.exports.devConfig = {
     entry: './sample1/child1/src/index.js',
@@ -113,7 +113,7 @@ module.exports.getDevConfigs = () => {
                 entry: `./${entryPath}/src/index.js`,
                 mode: ENV_MODE.DEVELOPMENT,
                 //source-map タイプのソースマップを出力
-                devtool: 'source-map',
+                // devtool: 'source-map',
                 // node_modules を監視（watch）対象から除外
                 watchOptions: {
                     ignored: /node_modules/  //正規表現で指定
@@ -121,8 +121,8 @@ module.exports.getDevConfigs = () => {
                 output: {
                     // filename: 'sample1/child1/js/bundle.js',
                     filename: `${entryPath}/js/bundle.js`,
-                    path: PROJECT_ROOT + '/dist',
-                    assetModuleFilename: `${entryPath}/[name][ext][query]`
+                    path: PROJECT_ROOT + '/dist'
+                    // assetModuleFilename: `${entryPath}/[name][ext][query]`
                 },
                 plugins: [
                     new webpack.SourceMapDevToolPlugin({
@@ -145,6 +145,10 @@ module.exports.getDevConfigs = () => {
                     new CopyWebpackPlugin({
                         patterns: [
                             {
+                                from: `common/`,
+                                to: `${PROJECT_ROOT}/dist/common/`,
+                            },
+                            {
                                 from: `${entryPath}/src/img/`,
                                 to: `${PROJECT_ROOT}/dist/${entryPath}/img/`,
                             }
@@ -164,7 +168,7 @@ module.exports.getDevConfigs = () => {
                     rules: [
                         {
                             test: /\.ejs$/,
-                            use: 'ejs-compiled-loader',
+                            use: 'ejs-compiled-loader'
                         },
                         {
                             test: /\.(scss|sass|css)$/i,
@@ -175,8 +179,18 @@ module.exports.getDevConfigs = () => {
                                     //     publicPath: PROJECT_ROOT,
                                     // }
                                 },
-                                'css-loader',
-                                'sass-loader'
+                                {
+                                    loader: "css-loader",
+                                    options: {
+                                        url: false
+                                    }
+                                },
+                                {
+                                    loader: "sass-loader",
+                                    options: {
+                                        additionalData: `$fontPath: "../../common/";`
+                                    }
+                                },
                             ],
                         },
                         {
@@ -196,19 +210,17 @@ module.exports.getDevConfigs = () => {
                             ]
                         },
                         //Asset Modules の設定
-                        // {
-                        //     test: /\.(png|svg|jpe?g|gif)$/i,
-                        //     type: 'asset/resource'
-                        // },
                         {
-                            test: /\.(png|svg|jpe?g|gif)$/i,
-                            generator: {
-                                filename: `${entryPath}/img/[name][ext][query]`
-                            },
+                            test: /\.(png|svg|jpe?g|gif|woff|woff2|eot|ttf|otf)$/i,
                             type: 'asset/resource'
                         },
                     ]
-                }
+                },
+                resolve: {
+                    alias: {
+                        '$fontPath': path.resolve(__dirname, './src/image/'),
+                    },
+                },
             };
             if(i === 0 && j === 0) {
                 // webpack-dev-server の設定

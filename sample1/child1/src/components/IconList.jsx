@@ -16,6 +16,11 @@ const IconList = () => {
             name: "マグカップ",
             ext: 'SVG',
             classname: "icon_cup"
+        },
+        {
+            name: "ハンバーガー",
+            ext: 'PNG',
+            classname: "icon_hamburger"
         }
     ]
 

@@ -1,0 +1,108 @@
+/* ================================================
+   Noto Sans JP Subset
+
+   subset txt
+   ws-web/v02/development/font/noto_sans_jp/subset_v1.txt
+
+   doc
+   ws-web/v02/development/font/noto_sans_jp/subset_doc.txt
+   ================================================ */
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 100;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin-subset.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 300;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Light-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Light-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Light-subset.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 400;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular-subset.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 500;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium-subset.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 700;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold-subset.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp';
+    font-weight: 900;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Black-subset.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Black-subset.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Black-subset.otf") format("opentype");
+}
+
+/* ================================================
+   Noto Sans JP Full
+   ================================================ */
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 100;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Thin.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 300;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Light.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Light.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Light.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 400;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Regular.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 500;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Medium.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 700;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Bold.otf") format("opentype")
+}
+
+@font-face {
+    font-family: 'Noto Sans Jp Full';
+    font-weight: 900;
+    src: url("#{$fontPath}noto_sans_jp/NotoSansJP-Black.woff2") format("woff2"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Black.woff") format("woff"),
+    url("#{$fontPath}noto_sans_jp/NotoSansJP-Black.otf") format("opentype");
+}
+

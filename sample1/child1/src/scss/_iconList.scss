@@ -37,5 +37,16 @@
           background-size: contain;
         }
       }
+      &_hamburger {
+        position: relative;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url(../../../common/img/icon_hamburger.png) no-repeat;
+          background-size: contain;
+        }
+      }
     }
 }
