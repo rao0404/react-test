@@ -11,100 +11,11 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {ENV_MODE, PROJECT_ROOT, CONTENT_ID, COMMON_DIR_PATH} = require("./config");
 
-module.exports.devConfig = {
-    entry: './sample1/child1/src/index.js',
-    mode: ENV_MODE.DEVELOPMENT,
-    //source-map タイプのソースマップを出力
-    devtool: 'source-map',
-    // node_modules を監視（watch）対象から除外
-    watchOptions: {
-        ignored: /node_modules/  //正規表現で指定
-    },
-    devtool: 'source-map',
-    // node_modules を監視（watch）対象から除外
-    watchOptions: {
-        ignored: /node_modules/  //正規表現で指定
-    },
-    output: {
-        filename: 'sample1/child1/js/bundle.js',
-        path: PROJECT_ROOT + '/dist'
-    },
-    plugins: [
-        // new webpack.SourceMapDevToolPlugin({
-        //     noSources: false,
-        //     filename: '[file].map'
-        // }),
-        new MiniCssExtractPlugin({
-            //出力するスタイルシートの名前
-            filename: 'sample1/child1/css/style.css',
-        }),
-        //html-webpack-plugin の設定
-        new HtmlWebpackPlugin({
-            filename: 'sample1/child1/index.html',
-            template: './sample1/child1/src/ejs/index.ejs',
-            hash: true,
-        })
-    ],
-    optimization: {
-        //圧縮方法（圧縮に使うプラグイン）を変更
-        minimizer: [
-            //JavaScript 用の圧縮プラグイン
-            new TerserPlugin({}),
-            //CSS 用の圧縮プラグイン
-            new OptimizeCSSAssetsPlugin({})
-        ],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ejs$/,
-                use: 'ejs-compiled-loader',
-            },
-            {
-                test: /\.(scss|sass|css)$/i,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: PROJECT_ROOT,
-                        }
-                    },
-                    'css-loader',
-                    'sass-loader'
-                ],
-            },
-            {
-                test: /\.(js|mjs|jsx)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                '@babel/preset-env',
-                                '@babel/preset-react',
-                            ],
-                            plugins: ["transform-class-properties"]
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    // webpack-dev-server の設定
-    devServer: {
-        static: {
-            directory: path.join(PROJECT_ROOT, 'dist'),
-        },
-        // サーバー起動時にブラウザを自動的に起動
-        open: true,
-        compress: true,
-        port: 9000,
-    }
-};
+
 
 module.exports.getDevConfigs = () => {
     const configs = []
+
     Object.keys(CONTENT_ID).map((key, i) => {
         const children = CONTENT_ID[key]
         children.map((id, j) => {
@@ -113,7 +24,7 @@ module.exports.getDevConfigs = () => {
                 entry: `./${entryPath}/src/index.js`,
                 mode: ENV_MODE.DEVELOPMENT,
                 //source-map タイプのソースマップを出力
-                // devtool: 'source-map',
+                devtool: 'source-map',
                 // node_modules を監視（watch）対象から除外
                 watchOptions: {
                     ignored: /node_modules/  //正規表現で指定
@@ -145,8 +56,12 @@ module.exports.getDevConfigs = () => {
                     new CopyWebpackPlugin({
                         patterns: [
                             {
-                                from: `common/`,
-                                to: `${PROJECT_ROOT}/dist/common/`,
+                                from: `common/img/`,
+                                to: `${PROJECT_ROOT}/dist/common/img/`,
+                            },
+                            {
+                                from: `common/font`,
+                                to: `${PROJECT_ROOT}/dist/common/font/`,
                             },
                             {
                                 from: `${entryPath}/src/img/`,

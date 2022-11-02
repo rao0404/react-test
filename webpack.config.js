@@ -13,7 +13,8 @@ const prodConfig = require('./scripts/webpack.prod');
 
 
 const {ENV_MODE, CONTENT_ID} = require("./scripts/config");
-const {devConfig, getDevConfigs} = require("./scripts/webpack.dev");
+const {getDevConfigs} = require("./scripts/webpack.dev");
+const {getProdConfigs} = require("./scripts/webpack.prod");
 
 const commonConfig = {
     entry: './sample1/child1/src/index.js',
@@ -121,6 +122,7 @@ const commonConfig = {
 
 module.exports = (env, argv) => {
     const mode = argv.mode? argv.mode : ENV_MODE.PRODUCTION
-    const config = mode === ENV_MODE.DEVELOPMENT? devConfig : prodConfig
-    return getDevConfigs()
+    const config = mode === ENV_MODE.DEVELOPMENT? getDevConfigs() : getProdConfigs()
+    return config
+
 }

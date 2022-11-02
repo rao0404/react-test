@@ -11,9 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "dev_cleanup": "rm -rf dist",
-    "watch": "webpack --mode development --watch",
-    "start": "npm run watch & webpack-dev-server"
+    "dev_cleanup": "rm -rfv dist",
+    "start": "yarn dev_cleanup && yarn dev && webpack-dev-server --mode development"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

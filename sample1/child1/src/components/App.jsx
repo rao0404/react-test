@@ -7,7 +7,7 @@ const App = () => {
     return (
         <>
             <Header></Header>
-            <div>success react renddering - sample1/child1</div>
+            <div>success react renddering - sample1/child11</div>
             <IconList />
         </>
     )
