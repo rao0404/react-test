@@ -68,7 +68,9 @@ module.exports.getProdConfigs = () => {
                     //圧縮方法（圧縮に使うプラグイン）を変更
                     minimizer: [
                         //JavaScript 用の圧縮プラグイン
-                        new TerserPlugin({}),
+                        new TerserPlugin({
+                            extractComments: false
+                        }),
                         //CSS 用の圧縮プラグイン
                         new OptimizeCSSAssetsPlugin({})
                     ],
@@ -124,7 +126,7 @@ module.exports.getProdConfigs = () => {
                             type: 'asset/resource'
                         },
                     ]
-                }
+                },
             };
             configs.push(prodConfigTemplate)
         })

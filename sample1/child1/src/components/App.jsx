@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import IconList from "./IconList.jsx";
 
 const App = () => {
-
+    console.log('start')
     return (
         <>
             <Header></Header>

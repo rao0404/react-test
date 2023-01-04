@@ -82,6 +82,12 @@ const commonConfig = {
                 ],
             },
             {
+                // 拡張子 .ts の場合
+                test: /\.ts$/,
+                // TypeScript をコンパイルする
+                use: 'ts-loader',
+            },
+            {
                 // Babel のローダーの設定
                 //対象のファイルの拡張子
                 test: /\.(js|mjs|jsx)$/,
@@ -101,6 +107,12 @@ const commonConfig = {
                 ]
             }
         ]
+    },
+    resolve: {
+        // 拡張子を配列で指定
+        extensions: [
+          '.ts', '.js',
+        ],
     },
     //webpack-dev-server の設定
     devServer: {
